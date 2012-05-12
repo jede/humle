@@ -245,6 +245,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mongoid
+  nokogiri
   omniauth
   omniauth-facebook
   pry

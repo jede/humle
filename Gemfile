@@ -16,6 +16,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'heroku'
+gem 'nokogiri'
 
 # Gems used only for assets and not required
 # in production environments by default.
