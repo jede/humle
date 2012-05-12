@@ -5,6 +5,8 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  embeds_many :check_ins
+
   ## Database authenticatable
   field :email,              :type => String, :null => false, :default => ""
   field :encrypted_password, :type => String, :null => false, :default => ""
@@ -59,6 +61,19 @@ class User
       user
     else # Create a user with a stub password. 
       self.create!(:email => data.email, :password => Devise.friendly_token[0,20]) 
+    end
+  end
+
+  def drink_count(beer)
+    check_ins.where(beer_id: beer.id).count
+  end
+
+  def rating_for(beer)
+    ratings = self.check_ins.where(:beer_id => beer.id, :rating.exists => true).all.map(&:rating)
+    if check_ins.any?
+      ratings.sum / ratings.size
+    else
+      nil
     end
   end
 end

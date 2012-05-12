@@ -19,7 +19,22 @@ class Beer
     "#{name} #{description}"
   end
 
+  def to_s
+    full_name
+  end
+
   def alcohol_percent=(percent)
     self.alcohol_content = "6.4%".scanf("%f").first / 100
+  end
+
+  def consumers
+    User.where('check_ins.beer_id' => id)
+  end
+
+  def score
+    scores = consumers.map do |consumer|
+      consumer.rating_for(self)
+    end
+    ((scores.sum / scores.size) * 10).round
   end
 end

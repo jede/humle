@@ -1,5 +1,5 @@
 <ul>
 <% @beers.each do |beer| -%>
-  <li><%= beer.full_name %></li>
+  <li><%= link_to beer, beer %></li>
 <% end -%>
 </ul>

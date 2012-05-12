@@ -1,7 +1,11 @@
 Humle::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :beers do
+  resources :users do
+    resources :check_ins
+  end
+
+  resources :beers do |beers|
     get 'search', on: :collection
   end
 

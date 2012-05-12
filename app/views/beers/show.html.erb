@@ -1,0 +1,16 @@
+<h1><%= @beer %></h1>
+
+<p>
+  <%= @beer.score %> poäng
+</p>
+<p>
+  <%= current_user.drink_count @beer %>  du
+</p>
+<p>
+  <%= @beer.consumers.count %>  pers
+</p>
+
+<%= form_for [current_user, current_user.check_ins.new] do |f| %>
+  <%= f.hidden_field :beer_id, value: @beer.id %>
+  <%= f.submit "Checka detta öl" %>
+<% end  %>
