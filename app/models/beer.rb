@@ -1,5 +1,8 @@
+# encoding: utf-8
 class Beer
   include Mongoid::Document
+  include Mongoid::FullTextSearch
+
   field :name, :type => String
   field :description, :type => String
   field :producer_name, :type => String
@@ -10,6 +13,7 @@ class Beer
   field :alcohol_content, :type => Float
   field :organic, :type => Boolean
 
+  fulltext_search_in :name, :description, :producer_name, :country, :region
 
   def full_name
     "#{name} #{description}"
