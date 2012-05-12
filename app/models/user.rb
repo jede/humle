@@ -70,7 +70,7 @@ class User
 
   def rating_for(beer)
     ratings = self.check_ins.where(:beer_id => beer.id, :rating.exists => true).all.map(&:rating)
-    if check_ins.any?
+    if ratings.any?
       ratings.sum / ratings.size
     else
       nil
