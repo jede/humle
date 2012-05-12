@@ -49,6 +49,10 @@ class User
     end
   end
 
+  def self.find_by_email(email)
+    User.where(email: email).first
+  end
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     if user = self.find_by_email(data.email)
