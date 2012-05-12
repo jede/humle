@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Humle::Application.config.secret_token = '48162c211349091f5b0fcb3879d560fe8f477fcc02978ef7fcf0f31c96a06c1c5b87bae45f70811b074e7710eacb2170c98224af75cc220bd95a32315b96cbe9'
+Humle::Application.config.secret_token = '5d2626c702457348326d69ab9c30080fb9dc7f8c35e3f954be043d9ff2e027ee0a8e82e99fee298afe4266f98df0c6bd4f0aff3fe340bff2bec47c017a7ed736'
