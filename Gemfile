@@ -5,8 +5,15 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'bson_ext'
+gem 'mongoid'
 
+gem 'simple_form'
+gem 'responders'
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -35,3 +42,25 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+#
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'jasmine'
+end
+
+group :test, :development do
+  gem 'jasmine-headless-webkit'
+end
+
+group :development do
+  gem 'gem-licenses'
+  gem 'pry'
+end
+
