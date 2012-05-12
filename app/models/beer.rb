@@ -35,6 +35,10 @@ class Beer
     scores = consumers.map do |consumer|
       consumer.rating_for(self)
     end
-    ((scores.sum / scores.size) * 10).round
+    if scores.any?
+      ((scores.sum / scores.size) * 10).round
+    else
+      50
+    end
   end
 end

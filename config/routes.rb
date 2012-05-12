@@ -9,6 +9,8 @@ Humle::Application.routes.draw do
     get 'search', on: :collection
   end
 
+  match 'position/change' => 'position#change'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

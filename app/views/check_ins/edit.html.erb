@@ -1,0 +1,20 @@
+<h1>
+  Checka
+  <%= link_to @check_in.beer, @check_in.beer %>
+</h1>
+<%= form_for [current_user, @check_in] do |f| %>
+  <h2>Sätt betyg</h2>
+  <%= f.select :rating, 0..10 %>
+  <h2>Välj plats</h2>
+  <ul>
+    <% @places.each do |place| -%>
+      <li>
+        <%= f.radio_button :place_id, place.id %>
+        <%= place.name %>
+      </li>
+    <% end  %>
+  </ul>
+  <h2>Kommentar</h2>
+  <%= f.text_area :comment %>
+  <%= f.submit "Checka" %>
+<% end -%>

@@ -1,0 +1,5 @@
+<h1>Checka <%= @check_in.beer %></h1>
+<%= form_for [current_user, current_user.check_ins.new] do |f| %>
+  <%= f.hidden_field :beer_id, value: @check_in.beer.id %>
+  <%= f.submit "Checka detta öl" %>
+<% end  %>

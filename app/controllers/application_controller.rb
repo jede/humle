@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
+  helper_method :current_position
   protect_from_forgery
 
-  def foursquare
-    id = "PQUUGARXHM5L4RL4R32XRCVI3PSHC0UKIURVGFP2M5GCF1UO"
-    secret = "XPQ1NVXXQSZI1VDIR4D1Z4ZQVQZWW5SXIJZVMAPKXEECDL50"
-    @foursquare ||= Foursquare::Base.new(id, secret)
+  def current_position
+    session[:current_position] || {latitude: '59.317546', longitude: '18.064098'}
   end
 end

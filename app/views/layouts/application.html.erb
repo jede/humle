@@ -10,5 +10,31 @@
 
 <%= yield %>
 
+<script>
+<% if current_position %>
+  window.position = {
+    accuracy: 27,
+    latitude: 59.3176153,
+    longitude: 18.0639226
+  }
+<% end %>
+
+function success(position) {
+  $.post('/position/change', {accuracy: position.accuracy, latitude: position.latitude, longitude: position.longitude})
+}
+
+function error(msg) {
+  console.log(arguments);
+}
+
+if (navigator.geolocation) {
+  if(!window.position) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+} else {
+  error('not supported');
+}
+
+</script>
 </body>
 </html>

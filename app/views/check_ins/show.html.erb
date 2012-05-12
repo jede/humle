@@ -1,1 +1,10 @@
-<%= link_to @check_in.beer, @check_in.beer %>
+<h1>Checkade <%= link_to @check_in.beer, @check_in.beer %></h1>
+<p>
+  Användare <%= @check_in.user.email %>
+</p>
+<p>
+  Betyg <%= @check_in.rating %>
+</p>
+<p>
+  Plats <%= @check_in.place %>
+</p>
