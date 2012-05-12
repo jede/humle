@@ -11,7 +11,7 @@
 <%= yield %>
 
 <script>
-<% if current_position %>
+<% if locked_current_position? %>
   window.position = {
     accuracy: 27,
     latitude: 59.3176153,
